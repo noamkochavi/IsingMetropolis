@@ -36,7 +36,7 @@ end
 
 """
     get_neighbors(i, L)
-    Get the indices of the nearest neighbors of a site `i` in a 2D square lattice of size LxL.
+    Get the indices of the nearest neighbors of a site `i` in a 2D square lattice of size LxL with periodic boundary conditions.
     Optimized for 2D square lattice only!
 """
 function get_neighbors(i, L)
@@ -50,7 +50,7 @@ end
     Display the lattice as a grayscale image.
     The lattice is expected to be a 1D array of values in {-1, 1}.
 """
-function show_lattice(lattice)
+function show_lattice(lattice, L)
     bw_array = Gray.((lattice .+ 1) ./ 2)
     img = reshape(bw_array, L, L)
     display(img)
